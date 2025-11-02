@@ -51,3 +51,5 @@ model.compile(loss='categorical_crossentropy',
 
 # model training
 history = model.fit(x, y, epochs=100)
+
+model.save('model.h5')
