@@ -36,4 +36,15 @@ num_classes = len(tokernizer.word_index) + 1
 #one hot encoding
 y = np.array(tf.keras.utils.to_categorical(y, num_classes=num_classes))
 
+# model building
+model = tf.keras.models.Sequential()
+model.add(tf.keras.layers.Embedding(num_classes, 80, input_length=max_len - 1))
+model.add(tf.keras.layers.LSTM(100))
+model.add(tf.keras.layers.Dense(num_classes, activation='softmax'))
 
+# model.summary()
+
+# compile the model
+model.compile(loss='categorical_crossentropy',
+              optimizer='adam',
+              metrics=['accuracy'])
