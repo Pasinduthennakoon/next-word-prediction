@@ -48,3 +48,6 @@ model.add(tf.keras.layers.Dense(num_classes, activation='softmax'))
 model.compile(loss='categorical_crossentropy',
               optimizer='adam',
               metrics=['accuracy'])
+
+# model training
+history = model.fit(x, y, epochs=100)
